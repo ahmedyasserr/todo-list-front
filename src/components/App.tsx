@@ -2,7 +2,7 @@ import React from "react";
 import TodoList from "./Forms/TodoList";
 import DeleteTodo from "./Forms/DeleteTodo";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import FormValidated from "./Forms/FormValidated";
+import AddTodo from "./Forms/AddTodo";
 import adminLogin from "./Forms/adminLogin";
 import EditTodo from "./Forms/EditTodo";
 
@@ -48,7 +48,7 @@ const App: React.FC = () => {
                 </div>
             </nav>
             <div className="container-fluid mt-2">
-                <Route path="/" exact component={FormValidated} />
+                <Route path="/" exact component={AddTodo} />
                 <Route path="/list" component={TodoList} />
                 <Route path="/delete" component={DeleteTodo} />
                 <Route path="/adminlogin" component={EditTodo} />

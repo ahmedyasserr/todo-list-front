@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { getAllTodos } from "../../api/todoApi";
+
 const Todo: React.FC<any> = props => (
     <tr>
         <td>{props.todo.id}</td>
@@ -23,30 +25,19 @@ class TodoList extends Component<any, any> {
         };
     }
     componentDidMount = async () => {
-        await fetch("http://localhost:4000/list")
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded: true,
-                    todos: json.data,
-                });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+        const todos = await getAllTodos();
+        this.setState({
+            isLoaded: true,
+            todos,
+        });
     };
+
     componentDidUpdate = async () => {
-        await fetch("http://localhost:4000/list")
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded: true,
-                    todos: json.data,
-                });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+        const todos = await getAllTodos();
+        this.setState({
+            isLoaded: true,
+            todos,
+        });
     };
 
     getTodosList = () => {
