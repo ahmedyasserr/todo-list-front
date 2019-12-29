@@ -10,7 +10,7 @@ export const TodoRow: React.FC<{ todo: Todo }> = props => (
         <td>{props.todo.priority}</td>
         <td>{props.todo.isComplete}</td>
         <td>
-            <Link to={"/edit" + props.todo.id}>Edit</Link>
+            <Link to={"/edit/" + props.todo.id}>Edit</Link>
         </td>
     </tr>
 );

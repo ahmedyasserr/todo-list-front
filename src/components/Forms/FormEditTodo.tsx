@@ -1,27 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { addTodo } from "../../api/todoApi";
+import { addTodo, getTodoById, updateTodoById } from "../../api/todoApi";
+import { RouteComponentProps } from "react-router-dom";
+import { TodoPriority, Todo } from "../../models/Todo";
 
 const validationSchema = yup.object().shape({
     description: yup.string().required(),
     responsible: yup.string().required(),
 });
 
-const AddTodo: React.FC = () => {
+export interface FormEditTodoProps extends RouteComponentProps<{ id: string }> {}
+
+export const FormEditTodo: React.FC<FormEditTodoProps> = ({ match }) => {
+    const [initialValues, setInitialValues] = useState<Todo>({
+        description: "",
+        responsible: "",
+        priority: "low",
+        isComplete: false,
+    });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const todo = await getTodoById(match.params.id);
+            if (todo !== null) {
+                setInitialValues(todo);
+            }
+        };
+        fetchData();
+    }, [match.params.id]);
+
     return (
         <div>
             <Formik
-                initialValues={{
-                    description: "",
-                    responsible: "",
-                    priority: "low",
-                    isComplete: false,
-                }}
+                enableReinitialize={true}
+                initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={async (values, { resetForm }) => {
-                    //Lama 3mlt async await batal y3ml reset lel form
-                    await addTodo(values);
+                    // Lama 3mlt async await batal y3ml reset lel form
+                    if (match.params.id) {
+                        await updateTodoById(match.params.id, values);
+                    } else {
+                        await addTodo(values);
+                    }
                     resetForm();
                 }}
             >
@@ -58,7 +79,7 @@ const AddTodo: React.FC = () => {
                                     type="radio"
                                     className="form-check-input"
                                     name="priority"
-                                    value="Low"
+                                    value="low"
                                 />
                                 Low
                             </label>
@@ -69,7 +90,7 @@ const AddTodo: React.FC = () => {
                                     type="radio"
                                     className="form-check-input"
                                     name="priority"
-                                    value="Medium"
+                                    value="medium"
                                 />
                                 Medium
                             </label>
@@ -80,7 +101,7 @@ const AddTodo: React.FC = () => {
                                     type="radio"
                                     className="form-check-input"
                                     name="priority"
-                                    value="High"
+                                    value="high"
                                 />
                                 High
                             </label>
@@ -101,5 +122,3 @@ const AddTodo: React.FC = () => {
         </div>
     );
 };
-
-export default AddTodo;

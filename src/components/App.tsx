@@ -1,10 +1,9 @@
 import React from "react";
-import TodoList from "./todo/TodoList";
+import { TodoList } from "./todo/TodoList";
 import DeleteTodo from "./Forms/DeleteTodo";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AddTodo from "./Forms/AddTodo";
+import { FormEditTodo } from "./Forms/FormEditTodo";
 import adminLogin from "./Forms/adminLogin";
-import EditTodo from "./Forms/EditTodo";
 
 const App: React.FC = () => {
     return (
@@ -24,17 +23,17 @@ const App: React.FC = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <Link to="/" className="nav-link">
                                 Add Todo
                             </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/list" className="nav-link">
+                        </li> */}
+                        <li className="nav-item active">
+                            <Link to="/" className="nav-link">
                                 Todo List
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to="/delete" className="nav-link">
                                 Delete Todo
                             </Link>
@@ -43,15 +42,15 @@ const App: React.FC = () => {
                             <Link to="/adminlogin" className="nav-link">
                                 Edit Todo
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </nav>
             <div className="container-fluid mt-2">
-                <Route path="/" exact component={AddTodo} />
-                <Route path="/list" component={TodoList} />
+                <Route exact path="/" component={TodoList} />
+                <Route exact path="/add" component={FormEditTodo} />
+                <Route exact path="/edit/:id" component={FormEditTodo} />
                 <Route path="/delete" component={DeleteTodo} />
-                <Route path="/adminlogin" component={EditTodo} />
                 <Route path="/adminlogin" component={adminLogin} />
             </div>
         </Router>
