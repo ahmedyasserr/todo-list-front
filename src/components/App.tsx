@@ -8,6 +8,7 @@ import adminLogin from "./Forms/adminLogin";
 const App: React.FC = () => {
     return (
         <Router>
+            {/* TODO create AppNav component */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <h1 className="navbar-brand">Todo Manager</h1>
                 <button

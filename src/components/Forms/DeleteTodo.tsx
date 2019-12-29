@@ -7,6 +7,7 @@ const validationSchema = yup.object().shape({
     id: yup.number().required("please enter an ID"),
 });
 
+// TODO Remove this component and implement the "delete logic" with a delete button in each row
 const DeleteTodo: React.FC = () => {
     return (
         <div>
