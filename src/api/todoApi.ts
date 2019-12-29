@@ -1,19 +1,22 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { allTodos } from "../mock/todo";
 
 const baseURL = "http://localhost:4000"; // TODO get this url from .env file
 
 export async function getAllTodos() {
-    const config: AxiosRequestConfig = {
-        url: "/list",
-        baseURL,
-        method: "GET",
-    };
+    // const config: AxiosRequestConfig = {
+    //     url: "/list",
+    //     baseURL,
+    //     method: "GET",
+    // };
     try {
-        const response = await axios.request(config);
-        return response.data;
+        // const response = await axios.request(config);
+        // return response.data;
+        return allTodos;
     } catch (error) {
         console.log(error);
     }
+    return [];
 }
 
 export async function addTodo(todo: any) {

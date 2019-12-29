@@ -1,5 +1,5 @@
 import React from "react";
-import TodoList from "./Forms/TodoList";
+import TodoList from "./todo/TodoList";
 import DeleteTodo from "./Forms/DeleteTodo";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AddTodo from "./Forms/AddTodo";

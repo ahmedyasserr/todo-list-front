@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
-import axios from "axios";
 import { addTodo } from "../../api/todoApi";
 
 const validationSchema = yup.object().shape({
@@ -16,7 +15,7 @@ const AddTodo: React.FC = () => {
                 initialValues={{
                     description: "",
                     responsible: "",
-                    priority: "Low",
+                    priority: "low",
                     isComplete: false,
                 }}
                 validationSchema={validationSchema}
