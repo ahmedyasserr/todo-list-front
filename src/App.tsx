@@ -1,15 +1,16 @@
 import React from 'react';
-import TodoList from './Forms/TodoList';
+import TodoList from './Components/TodoList';
 import DeleteTodo from './Forms/DeleteTodo';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import FormValidated from './Forms/FormValidated';
 import adminLogin from './Forms/adminLogin';
 import EditTodo from './Forms/EditTodo';
+import Navbare from './Components/Navbare';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <h1 className="navbar-brand">Todo Manager</h1>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -30,7 +31,8 @@ const App: React.FC = () => {
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> */}
+      <Navbare />
           <div className="container-fluid mt-2">
             <Route path="/" exact component={FormValidated} />
             <Route path="/list" component={TodoList} />

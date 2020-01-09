@@ -33,20 +33,20 @@ class TodoList extends Component<any,any> {
           console.log(error);
       })
 }
-componentDidUpdate = async ()  =>{
-  await fetch('http://localhost:4000/list')
-    .then(res => res.json())
-    .then(
-      json => {
-        this.setState({
-          isLoaded: true,
-          todos: json.data
-        });
-      })
-      .catch(function (error){
-          console.log(error);
-      })
-}
+// componentDidUpdate = async ()  =>{
+//   await fetch('http://localhost:4000/list')
+//     .then(res => res.json())
+//     .then(
+//       json => {
+//         this.setState({
+//           isLoaded: true,
+//           todos: json.data
+//         });
+//       })
+//       .catch(function (error){
+//           console.log(error);
+//       })
+// }
 
 getTodosList = () => {
   return   this.state.todos && this.state.todos.map((todoz: any) => {
