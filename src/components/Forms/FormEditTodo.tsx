@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { addTodo, getTodoById, updateTodoById } from "../../api/todoApi";
 import { RouteComponentProps } from "react-router-dom";
-import { TodoPriority, Todo } from "../../models/Todo";
+import {Todo} from "../../models/Todo";
 
 const validationSchema = yup.object().shape({
     description: yup.string().required(),

@@ -53,7 +53,7 @@ export async function updateTodoById(id: string, todo: Todo): Promise<Todo | nul
     return null;
 }
 
-export async function addTodo(todo: any) {
+export async function addTodo(todo: Todo) {
     const config: AxiosRequestConfig = {
         url: `/`, // TODO rename to /list
         baseURL,

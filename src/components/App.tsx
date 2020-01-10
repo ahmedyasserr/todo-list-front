@@ -1,10 +1,10 @@
 import React from "react";
 import { TodoList } from "./todo/TodoList";
 import DeleteTodo from "./Forms/DeleteTodo";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import { FormEditTodo } from "./Forms/FormEditTodo";
 import adminLogin from "./Forms/adminLogin";
-import { Navbar } from "./Navbar";
+import { Navbar } from "./Bootstrap-Components/Navbar";
 
 const App: React.FC = () => {
     return (
