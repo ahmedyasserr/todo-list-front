@@ -15,8 +15,9 @@ export const TodoList: FC = (props: any) => {
             setIsLoaded(true);
         };
         fetchData();
+        setIsLoaded(false);
     }, []);
-
+    
     return (
         <div className="container-fluid">
             <h2 className="text-center">Todo List</h2>
@@ -33,7 +34,7 @@ export const TodoList: FC = (props: any) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {todos.map((todoz: any) => (
+                    {todos.map((todoz: Todo) => (
                         <TodoRow key={todoz.id} todo={todoz} />
                     ))}
                 </tbody>
