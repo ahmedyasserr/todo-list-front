@@ -10,7 +10,7 @@ export const Navbar: React.FC = () => {
             <RBNavbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link active>
-                        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                        <Link to="/list" style={{ textDecoration: "none", color: "white" }}>
                             Todo List
                         </Link>
                     </Nav.Link>

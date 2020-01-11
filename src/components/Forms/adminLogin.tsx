@@ -20,16 +20,16 @@ const adminLogin: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={async values => {
                     //Lama 3mlt async await batal y3ml reset lel form
-                    axios.post("http://localhost:4001/", values).then(res => console.log(res.data));
+                    axios.post("http://localhost:4001/login", values).then(res => console.log(res.data));
                     setTimeout(() => {
                         console.log("logging the values", values);
                     }, 250);
-                    return <Redirect to="/edit" />;
+                    return <Redirect to="/list" />;
                 }}
             >
                 {({ values, isSubmitting }) => (
                     <Form>
-                        <div className="form-group col-md-6">
+                        <div className="form-group col-md-12">
                             <h3 className="text-left mt-2">
                                 You must Login as admin to Edit todos.
                             </h3>
@@ -38,19 +38,19 @@ const adminLogin: React.FC = () => {
                                 type="text"
                                 name="username"
                                 className="form-control"
-                                placeholder="Enter Todo description"
+                                placeholder="Enter Username"
                             />
                             <ErrorMessage name="username">
                                 {msg => <div className="text-danger mt-2">{msg}</div>}
                             </ErrorMessage>
                         </div>
-                        <div className="form-group col-md-6">
+                        <div className="form-group col-md-12">
                             <label>Password</label>
                             <Field
                                 type="password"
                                 name="password"
                                 className="form-control"
-                                placeholder="Enter Todo responsible"
+                                placeholder="Enter Password"
                             />
                             <ErrorMessage name="password">
                                 {msg => <div className="text-danger mt-2">{msg}</div>}
@@ -61,7 +61,7 @@ const adminLogin: React.FC = () => {
                             disabled={isSubmitting}
                             className="btn btn-outline-primary mt-2 ml-3"
                         >
-                            Register
+                            Submit
                         </button>
                         {/* This line is only used during debugging. */}
                         {/* <pre className="mt-2">{JSON.stringify(values, null, 2)}</pre> */}
