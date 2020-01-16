@@ -36,7 +36,7 @@ export async function getTodoById(id: string): Promise<Todo | null> {
 
 export async function updateTodoById(id: string, todo: Todo): Promise<Todo | null> {
     const config: AxiosRequestConfig = {
-        url: `/list/${id}`,
+        url: `/list/edit/${id}`,
         baseURL,
         method: "PATCH",
         data: todo,

@@ -37,7 +37,6 @@ export const FormEditTodo: React.FC<FormEditTodoProps> = ({ match }) => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={async (values, { resetForm }) => {
-                    // Lama 3mlt async await batal y3ml reset lel form
                     if (match.params.id) {
                         await updateTodoById(match.params.id, values);
                     } else {

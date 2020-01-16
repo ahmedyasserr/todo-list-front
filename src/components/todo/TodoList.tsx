@@ -6,16 +6,13 @@ import { TodoRow } from "./TodoRow";
 
 export const TodoList: FC = (props: any) => {
     const [todos, setTodos] = useState<Todo[]>([]);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             const todos = await getAllTodos();
             setTodos(todos);
-            setIsLoaded(true);
         };
         fetchData();
-        setIsLoaded(false);
     }, []);
     return (
         <div className="container-fluid">
@@ -33,9 +30,9 @@ export const TodoList: FC = (props: any) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {todos.map(todoz => (
+                    {todos.map(todoz => (
                         <TodoRow key={todoz.id} todo={todoz} />
-                    ))} */}
+                    ))}
                 </tbody>
             </table>
         </div>
