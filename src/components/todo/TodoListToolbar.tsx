@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const TodoListToolbar: FC = (props: any) => {
     return (
         <div className="row justify-content-md-center mb-2">
-            <Link to="list/add" className="btn btn-outline-primary col-2">
+            <Link to="/add" className="btn btn-outline-primary col-2">
                 Add Todo
             </Link>
         </div>

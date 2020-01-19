@@ -36,7 +36,7 @@ export async function getTodoById(id: string): Promise<Todo | null> {
 
 export async function updateTodoById(id: string, todo: Todo): Promise<Todo | null> {
     const config: AxiosRequestConfig = {
-        url: `/list/edit/${id}`,
+        url: `/edit/${id}`,
         baseURL,
         method: "PATCH",
         data: todo,
@@ -53,7 +53,7 @@ export async function updateTodoById(id: string, todo: Todo): Promise<Todo | nul
 
 export async function addTodo(todo: Todo) {
     const config: AxiosRequestConfig = {
-        url: `/list/add`, // TODO rename to /list
+        url: `/add`, // TODO rename to /list
         baseURL,
         method: "POST",
         data: todo,
@@ -68,7 +68,7 @@ export async function addTodo(todo: Todo) {
 
 export async function deleteTodoById(id: string) {
     const config: AxiosRequestConfig = {
-        url: `list/delete/${id}`, // TODO rename to /list/delete
+        url: `/delete/${id}`, // TODO rename to /list/delete
         baseURL,
         method: "POST",
     };
